@@ -1,7 +1,7 @@
-from flask import Flask
+from flask import Flask, render_template
 import os
 from dotenv import load_dotenv
-from models import db, connect_db
+from models import connect_db
 
 
 app = Flask(__name__)
@@ -17,4 +17,4 @@ connect_db(app)
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello World!</p>"
+    return render_template("index.html")
